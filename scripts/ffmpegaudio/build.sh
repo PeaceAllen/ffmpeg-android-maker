@@ -195,7 +195,9 @@ done
 # that turns them off, but two of them need libswscale. libswscale is bigger
 # than every audio filter of FFmpeg together, so each example is disabled
 # separately, the same way the configure itself lists them.
-for EXAMPLE_NAME in $(sed -n '/^EXAMPLE_LIST="/,/^"$/p' configure | grep -v '^EXAMPLE_LIST=')
+# The first and the last line of EXAMPLE_LIST are its quotes, they are dropped
+# with sed, otherwise they would end up inside a --disable- argument.
+for EXAMPLE_NAME in $(sed -n '/^EXAMPLE_LIST="/,/^"$/p' configure | sed '1d;$d')
 do
   AUDIO_CONFIGURATION_FLAGS+=" --disable-${EXAMPLE_NAME}"
 done
