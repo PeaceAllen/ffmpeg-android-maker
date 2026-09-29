@@ -24,10 +24,13 @@ esac
 
 # Audio decoders that are implemented by FFmpeg itself.
 # Decoders that need an external library are not listed here,
-# see externalCodecsOf below.
+# see externalEncodersOf below.
 # Mind that FFmpeg 8 names the G.7xx codecs adpcm_g7xx, not g7xx
+# GPL licensed decoders are not here either, because --enable-gpl is never
+# passed and they would be dropped with a warning. Those are ahx_decoder,
+# adpcm_n64_decoder and adpcm_psxc_decoder.
 AUDIO_DECODERS="
-  aac aac_fixed aac_latm ac3 ac3_fixed ahx alac als apac ape aptx aptx_hd
+  aac aac_fixed aac_latm ac3 ac3_fixed alac als apac ape aptx aptx_hd
   bmv_audio bonk cook dca dolby_e dss_sp evrc flac g723_1 g728 g729
   gsm gsm_ms hca hcom imc mace3 mace6 mlp
   mp1 mp1float mp2 mp2float mp3 mp3adu mp3adufloat mp3float mp3on4
@@ -38,7 +41,7 @@ AUDIO_DECODERS="
   adpcm_ea_xas adpcm_g722 adpcm_g726 adpcm_g726le
   adpcm_ima_alp adpcm_ima_amv adpcm_ima_apm adpcm_ima_iss adpcm_ima_qt
   adpcm_ima_smjpeg adpcm_ima_ssi adpcm_ima_wav adpcm_ima_xbox
-  adpcm_ms adpcm_mtaf adpcm_n64 adpcm_psx adpcm_psxc adpcm_sbpro_2
+  adpcm_ms adpcm_mtaf adpcm_psx adpcm_sbpro_2
   adpcm_sbpro_3 adpcm_sbpro_4 adpcm_swf adpcm_vima adpcm_xa adpcm_xmd
   adpcm_yamaha adpcm_zork
   pcm_alaw pcm_bluray pcm_dvd pcm_f16le pcm_f24le pcm_f32be pcm_f32le
