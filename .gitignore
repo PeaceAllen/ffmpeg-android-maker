@@ -1,7 +1,10 @@
 build
+build-audio
 output
+output-audio
 sources
 stats
+stats-audio
 .DS_Store
 .idea
 *.iml
